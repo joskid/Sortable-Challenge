@@ -5,7 +5,7 @@ import json
 
 class String(object):
     """
-    `String` is an abstract handler class that will contain several class-level members whose insantiation has some performance costs and therefore its important for them to only be loaded once"""
+    `String` is an abstract handler class required to be loaded only once because of certain instantiaion costs."""
 
     remchars = ''.join(c for c in map(chr, range(256)) if ( (not c.isalnum()) and (c not in ('.')) ) )
 
@@ -158,7 +158,7 @@ class Product(String):
 
 class treeNodes(object):
     """Factory that generates specialized Tree structure used to traverse products quickly.
-    Has a factory-esque pattern where a new type of node is generated depending on the `_type` attribute.
+    treeNodes has a factory-esque pattern where a new type of node is generated depending on the `_type` attribute.
     This is because the matching methods for each node depend on the level of the tree (i.e. matching
     at the `model` level is different from matching at the `family` level (`model` will be more strict)).
     At the base of the tree are products, so if the node type is `Model`, then the node will hold members of
